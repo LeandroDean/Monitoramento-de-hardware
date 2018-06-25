@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<!--Grafico da cotação de bitoin-->
+<link href="@Url.Content("~/Content/resets.css")" rel="stylesheet">
+<div class="container text-center">
+
+    <h2>MiningLab - Cotação Bitcoin</h2>
+
+</div>
+<section class="left">
+    <script type="text/javascript" src="https://s3.amazonaws.com/tradingview/tv.js"></script>
+    <script type="text/javascript">
+        new TradingView.widget({
+            "width": 1100,
+            "height": 800,
+            "symbol": "MERCADO:BTCBRL",
+            "interval": "15",
+            "timezone": "exchange",
+            "theme": "White",
+            "toolbar_bg": "#f4f7f9",
+            "hide_side_toolbar": false,
+            "watchlist": [
+                "MERCADO:BTCBRL",
+                "MERCADO:LTCBRL",
+                "BITSTAMP:BTCUSD"
+            ],
+            "details": true,
+            "hideideas": true
+        });
+    </script>
+
+</section>
+

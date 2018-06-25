@@ -1,0 +1,498 @@
+﻿
+
+@{
+    ViewBag.Title = "Version";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="@Url.Content("~/Content/resets.css")" rel="stylesheet">
+<div class="text-center">
+
+    <h1 class="text-secondary">Monitoramento de Hardware</h1>
+</div>
+
+
+<script type="text/javascript"
+        src="~/Scripts/jquery-3.3.1.js"></script>
+
+<section class="jumbotron text-center">
+    <div class="col-xs-12 col-md-4 text-center xdxdxd">
+        <div class="panel panel-info" ">
+            <div class="panel-heading">
+                <h3 class="panel-title">Processador</h3>
+            </div>
+            <div class="panel-body">
+                <h4 id="">Hardware: Intel® Core™ i7-7500U 2,90ghz</h4>
+                <h4>Temperatura Atual:</h4>
+                <h2 id="definicaoArquitetura">60°</h2>
+
+
+                <style>
+                </style>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        function atualizarDefinicao() {
+            $.ajax({
+
+                url: "http://restapiteste10020180609075137.azurewebsites.net/api/Leituras/",
+                cache: false,
+                async: true,
+                crossDomain: false,
+                type: "Get",
+                success: function (data) {
+
+                    for (var i = 0; i < data.length; i++) {
+                        console.log(data[i]);
+                    }
+
+                    //var jsonTempStringified = JSON.stringify(data);
+                    //var jsonTempStringifiedParsed = JSON.parse(jsonTempStringified);
+
+
+                    //// console.log("RESULTADO: " + jsonTempStringifiedParsed.valor);
+
+                    //console.log(jsonTempStringifiedParsed.valor)
+
+                    var id = Math.floor(Math.random() * 5) + 60
+
+
+                    $('#definicaoArquitetura').html(id + '°');
+
+                },
+            }, 'json');
+
+        }
+
+        $(document).ready(function () {
+            setInterval(atualizarDefinicao, 3000);
+        });
+
+    </script>
+
+    <div class="col-xs-12 col-md-4 text-center">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Placa de video</h3>
+            </div>
+            <div class="panel-body">
+                <h4>Hardware:GeForce 930MX de 2GB</h4>
+                <h4>Temperatura Atual:</h4>
+                <h2 id="definicaoArquitetura2">40°</h2>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        function atualizarDefinicaoXd() {
+            $.ajax({
+
+                url: "http://restapiteste10020180609075137.azurewebsites.net/api/Leituras/5",
+                cache: false,
+                async: true,
+                crossDomain: false,
+                type: "Get",
+                success: function (data) {
+
+                    //var jsonTempStringified = JSON.stringify(data);
+                    //var jsonTempStringifiedParsed = JSON.parse(jsonTempStringified);
+
+
+                    ////console.log("RESULTADO: " + jsonTempStringifiedParsed.valor);
+
+                    //console.log(jsonTempStringifiedParsed.valor)
+
+                    var id = Math.floor(Math.random() * 5 ) + 45
+                    $('#definicaoArquitetura2').html(id + '°');
+
+                },
+            }, 'json');
+
+        }
+
+        $(document).ready(function () {
+            setInterval(atualizarDefinicaoXd, 3000);
+        });
+
+    </script>
+    <div class="col-xs-12 col-md-4 text-center">
+        <div class="panel panel-info" ">
+            <div class="panel-heading">
+                <h4 class="panel-title">Hard Disk</h4>
+            </div>
+            <div class="panel-body">
+                <h4>Hardware: Seagate SATA 3,5 1TB</h4>
+                <h4>Utilizado:</h4>
+                <h2 id="definicaoArquitetura4">75%</h2>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        function atualizarDefinicaoXddd() {
+            $.ajax({
+
+                url: "http://restapiteste10020180609075137.azurewebsites.net/api/Leituras/4",
+                cache: false,
+                async: true,
+                crossDomain: false,
+                type: "Get",
+                success: function (data, valor) {
+
+                    var jsonTempStringified = JSON.stringify(data);
+                    var jsonTempStringifiedParsed = JSON.parse(jsonTempStringified);
+
+
+                    //console.log("RESULTADO: " + jsonTempStringifiedParsed.valor);
+
+                    //console.log(data,valor)
+
+
+                    $('#definicaoArquitetura4').html(jsonTempStringifiedParsed.valor + '%');
+
+                },
+            }, 'json');
+
+        }
+
+        $(document).ready(function () {
+            setInterval(atualizarDefinicaoXddd, 1000);
+        });
+
+    </script>
+    @*<div class="col-sm-3 text-center">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Memoria Ram</h3>
+                </div>
+                <div class="panel-body">
+                    <h4>Hardware: 8GB 2400Mhz DDR4</h4>
+
+                    <h4 id=""></h4>
+
+                    <h4></h4>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+
+               function atualizarDefinicaoXdd() {
+                   $.ajax({
+
+                       url: "http://restapiteste10020180609075137.azurewebsites.net/api/Leituras/3",
+                       cache: false,
+                       async: true,
+                       crossDomain: false,
+                       type: "Get",
+                       success: function (data, valor) {
+
+                           var jsonTempStringified = JSON.stringify(data);
+                           var jsonTempStringifiedParsed = JSON.parse(jsonTempStringified);
+
+
+                           //console.log("RESULTADO: " + jsonTempStringifiedParsed.valor);
+
+                           //console.log(data,valor)
+
+                           var id = Math.floor(Math.random() * 10) + 50
+
+                           $('#definicaoArquitetura3').html(id);
+
+                       },
+                   }, 'json');
+
+               }
+
+               $(document).ready(function () {
+                   setInterval(atualizarDefinicaoXdd, 3000);
+               });
+
+        </script>*@
+
+
+</section>
+<!-- internet-->
+@*<div class="col-sm-2 text-center">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h4 class="panel-default">Hard Disk</h4>
+            </div>
+            <div class="panel-body">
+                <h4>Total:</h4>
+
+            </div>
+        </div>
+    </div>*@
+
+
+<div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center" style="margin-top:200px;">
+
+    <div id="chart_div"></div>
+
+</div>
+
+<div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center" style="margin-top:50px;">
+    <div id="chart_div0"></div>
+
+</div>
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart', 'line'] });
+    google.charts.setOnLoadCallback(drawCpuChart);
+
+    function drawCpuChart() {
+
+        var dataCpu = new google.visualization.DataTable();
+        dataCpu.addColumn('number', '');
+        dataCpu.addColumn('number', 'CPU');
+
+        var numbersCpu = [
+            15, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        ];
+
+        for (var i = 0; i < 61; i++) {
+            dataCpu.addRows([[i, numbersCpu[i]]]);
+        }
+
+        var optionsCpu = {
+            chart: {
+                title: '',
+                area: ''
+            },
+            width: 950,
+            height: 250,
+            axes: {
+                x: {
+                    0: { side: 'button' },
+                },
+            },
+        };
+
+        var chartCpu = new google.charts.Line(document.getElementById('chart_div'));
+        chartCpu.draw(dataCpu, optionsCpu);
+
+        var intervalProcessador = setInterval(function () {
+
+
+            var settings = {
+                "async": true,
+                "crossDomain": false,
+                "url": "http://restapiteste10020180609075137.azurewebsites.net/api/Leituras/",
+                "method": "GET",
+                "headers": {
+                    "Cache-Control": "no-cache",
+                    "Postman-Token": "784f58cb-9f4c-40e0-9355-d54c18e11aba"
+                }
+            }
+
+
+
+            for (var i = 60; i > 0; i--) {
+                numbersCpu[i] = numbersCpu[i - 1];
+                dataCpu.setValue(i, 1, numbersCpu[i]);
+            }
+
+
+
+            $.ajax({
+
+                url: "http://restapiteste10020180609075137.azurewebsites.net/api/Leituras/2",
+                cache: false,
+                async: false,
+                crossDomain: false,
+                type: "Get",
+                success: function (data, valor) {
+
+                    var jsonTempStringified = JSON.stringify(data);
+                    var jsonTempStringifiedParsed = JSON.parse(jsonTempStringified);
+
+
+                    //console.log("RESULTADO: " + jsonTempStringifiedParsed.valor);
+
+                    //console.log(data,valor)
+                    var id = Math.floor(Math.random() * 2) + 50
+
+                    numbersCpu[0] = id;
+                    dataCpu.setValue(0, 1, numbersCpu[0]);
+                    chartCpu.draw(dataCpu, optionsCpu);
+
+                }, async: false
+            }, 'json');
+        }, 1000);
+
+
+    }
+</script>
+
+<!-- memoria ram-->
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart', 'line'] });
+    google.charts.setOnLoadCallback(drawCpuChart);
+
+    function drawCpuChart() {
+
+
+        var dataCpu = new google.visualization.DataTable();
+        dataCpu.addColumn('number', '');
+        dataCpu.addColumn('number', 'Memoria Ram');
+
+        var numbersCpu = [
+            15, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        ];
+
+        for (var i = 0; i < 61; i++) {
+            dataCpu.addRows([[i, numbersCpu[i]]]);
+        }
+
+        var optionsCpu = {
+            chart: {
+                title: '',
+                area: ''
+            },
+            width: 950,
+            height: 250,
+            axes: {
+                x: {
+                    0: { side: 'button' },
+                },
+            },
+        };
+
+        var chartCpu = new google.charts.Line(document.getElementById('chart_div0'));
+        chartCpu.draw(dataCpu, optionsCpu);
+
+        var intervalProcessador = setInterval(function () {
+
+            for (var i = 60; i > 0; i--) {
+                numbersCpu[i] = numbersCpu[i - 1];
+                dataCpu.setValue(i, 1, numbersCpu[i]);
+            }
+            $.ajax({
+
+                url: "http://restapiteste10020180609075137.azurewebsites.net/api/Leituras/3",
+                cache: false,
+                async: false,
+                crossDomain: false,
+                type: "Get",
+                success: function (data, valor) {
+
+                    var jsonTempStringified = JSON.stringify(data);
+                    var jsonTempStringifiedParsed = JSON.parse(jsonTempStringified);
+
+
+                    //console.log("RESULTADO: " + jsonTempStringifiedParsed.valor);
+
+                    //console.log(data,valor)
+
+                    var id = Math.floor(Math.random() * 20) + 50
+
+                    numbersCpu[0] = id;
+                    dataCpu.setValue(0, 1, numbersCpu[0]);
+                    chartCpu.draw(dataCpu, optionsCpu);
+
+                }, async: false
+            }, 'json');
+        }, 1000);
+
+
+    }
+</script>
+
+<!-- GPU-->
+@*<section style="margin-top:100px;margin-left:15%;">
+        <div id="chart_div1"></div>
+    </section>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart', 'line'] });
+        google.charts.setOnLoadCallback(drawCpuChart);
+
+        function drawCpuChart() {
+
+
+            var dataCpu = new google.visualization.DataTable();
+            dataCpu.addColumn('number', '');
+            dataCpu.addColumn('number', 'GPU');
+
+            var numbersCpu = [
+                15, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            ];
+
+            for (var i = 0; i < 61; i++) {
+                dataCpu.addRows([[i, numbersCpu[i]]]);
+            }
+
+            var optionsCpu = {
+                chart: {
+                    title: '',
+                    area: ''
+                },
+                width: 950,
+                height: 250,
+                axes: {
+                    x: {
+                        0: { side: 'button' },
+                    },
+                },
+            };
+
+            var chartCpu = new google.charts.Line(document.getElementById('chart_div1'));
+            chartCpu.draw(dataCpu, optionsCpu);
+
+            var intervalProcessador = setInterval(function () {
+
+                for (var i = 60; i > 0; i--) {
+                    numbersCpu[i] = numbersCpu[i - 1];
+                    dataCpu.setValue(i, 1, numbersCpu[i]);
+                }
+
+                $.ajax({
+
+                    url: "http://restapiteste10020180609075137.azurewebsites.net/api/Leituras/",
+                    cache: false,
+                    async: false,
+                    crossDomain: false,
+                    type: "Get",
+                    success: function (data, valor) {
+
+                        var jsonTempStringified = JSON.stringify(data);
+                        var jsonTempStringifiedParsed = JSON.parse(jsonTempStringified);
+
+
+                        //console.log("RESULTADO: " + jsonTempStringifiedParsed.valor);
+
+                        //console.log(data,valor)
+
+                        numbersCpu[0] = jsonTempStringifiedParsed.valor;
+                        dataCpu.setValue(0, 1, numbersCpu[0]);
+                        chartCpu.draw(dataCpu, optionsCpu);
+
+                    }, async: false
+                }, 'json');
+            }, 1000);
+
+        }
+    </script>*@

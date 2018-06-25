@@ -1,0 +1,104 @@
+﻿.xdxd {
+    margin-left: 0%;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* Gera um quadrado responsivo. */
+.square {
+    width: 48%;
+    height: 0; /* A mágica está aqui */
+    padding-bottom: 48%; /* ... e está aqui */
+    margin: 1%;
+    float: left;
+    position: relative;
+}
+
+/*
+    Veja mais sobre como centralizar o texto no box aqui:
+    http://css-tricks.com/centering-in-the-unknown/
+*/
+.block {
+    position: absolute;
+    text-align: center;
+    background: #1a1a1a;
+    width: 100%;
+    height: 100%;
+}
+
+    .block:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em;
+    }
+
+.centered {
+    display: inline-block;
+    vertical-align: middle;
+    width: 80%;
+    background: #222;
+    color: #FFF;
+}
+.al{
+    margin-left: 50%;
+}
+
+@import "bourbon";
+
+body {
+    background: #eee !important;
+}
+
+.wrapper {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.form-signin {
+    max-width: 380px;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
+    .form-signin-heading, .checkbox
+
+{
+    margin-bottom: 30px;
+}
+
+.checkbox {
+    font-weight: normal;
+}
+
+.form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    @include box-sizing(border-box);
+    &:focus
+
+{
+    z-index: 2;
+}
+
+}
+
+input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+input[type="password"] {
+    margin-bottom: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.teste{
+    margin-left: 50%;
+}
